@@ -20,9 +20,13 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 30px;
-  background: rgba(54, 182, 77, 0.85);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  padding: 25px 40px;
+  background: linear-gradient(to right, #43cea2, #185a9d); /* Gradient hijau ke biru */
+  box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 
 header .logo {
@@ -39,7 +43,9 @@ header .logo img {
 header .logo h1 {
   font-size: 36px;
   margin: 0;
-  color: #181a18;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 
 header .icons {
@@ -48,9 +54,11 @@ header .icons {
 }
 
 header .icons i {
-  font-size: 24px;
-  cursor: pointer;
-  color: #444;
+  color: white;
+  transition: transform 0.2s;
+}
+header .icons i:hover {
+  transform: scale(1.2);
 }
 
 /* Kategori Tanaman */
@@ -264,4 +272,24 @@ header .icons i {
   display: block; /* Menghilangkan ruang kosong di bawah gambar */
   margin: 0 auto; /* Menempatkan gambar di tengah */
   border-radius: 8px; /* Opsional, memberi radius pada gambar */
+}
+.deskripsi-aplikasi {
+  background-color: rgba(255, 255, 255, 0.92);
+  margin: 20px auto;
+  padding: 20px 30px;
+  max-width: 800px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.deskripsi-aplikasi h2 {
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+.deskripsi-aplikasi p {
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.6;
 }
