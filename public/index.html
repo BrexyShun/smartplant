@@ -89,6 +89,26 @@
     </div>
   </main>
 
+  <!-- Modal Tentang Aplikasi -->
+<div id="modal-tentang" class="modal" style="display: none;">
+  <div class="modal-content">
+    <span id="close-modal" class="close">&times;</span>
+    <h2>Tentang Aplikasi SmartPlant</h2>
+    <p>
+      SmartPlant adalah aplikasi yang membantu pengguna dalam memantau dan mencatat data tanaman mereka, seperti umur tanaman, jumlah air, dan kondisi kesehatan. 
+      Aplikasi ini dirancang untuk mendukung pertanian pintar dan urban farming.
+    </p>
+    <p>
+      Fitur-fitur:
+      <ul>
+        <li>Mencatat data tanaman berdasarkan kategori</li>
+        <li>Menampilkan rekomendasi berdasarkan input pengguna</li>
+        <li>User-friendly dan responsif</li>
+      </ul>
+    </p>
+  </div>
+</div>
+
   <script type="module">
     import { tampilkanHasilInput } from './hasilInput.js';
 
@@ -163,6 +183,26 @@
         inputForm.style.display = 'block';
       });
       rekomendasiDiv.appendChild(ulangBtn);
+      
+      // Modal Tentang Aplikasi
+const modalTentang = document.getElementById('modal-tentang');
+const closeModal = document.getElementById('close-modal');
+const infoIcon = document.querySelector('.fa-info-circle');
+
+infoIcon.addEventListener('click', () => {
+  modalTentang.style.display = 'block';
+});
+
+closeModal.addEventListener('click', () => {
+  modalTentang.style.display = 'none';
+});
+
+window.addEventListener('click', (event) => {
+  if (event.target === modalTentang) {
+    modalTentang.style.display = 'none';
+  }
+});
+
     });
   </script>
 </body>
