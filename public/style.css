@@ -1,0 +1,267 @@
+/* Background keseluruhan */
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-image: url('../public/images/bg-tanaman1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+/* Overlay putih transparan agar teks tetap terbaca */
+main {
+  min-height: 100vh;
+  padding-bottom: 40px;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  background: rgba(54, 182, 77, 0.85);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+header .logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+header .logo img {
+  width: 80px;
+  height: 80px;
+}
+
+header .logo h1 {
+  font-size: 36px;
+  margin: 0;
+  color: #181a18;
+}
+
+header .icons {
+  display: flex;
+  gap: 20px;
+}
+
+header .icons i {
+  font-size: 24px;
+  cursor: pointer;
+  color: #444;
+}
+
+/* Kategori Tanaman */
+.kategori-tanaman {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 40px 20px;
+  gap: 30px;
+}
+
+.kategori-item {
+  flex: 1 1 250px;
+  max-width: 320px;
+  text-align: center;
+  background-color: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.kategori-item:hover {
+  transform: translateY(-5px);
+}
+
+.kategori-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.kategori-item button {
+  margin-top: 12px;
+  padding: 12px;
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.kategori-item button:hover {
+  background-color: #388e3c;
+}
+
+/* Tombol kembali */
+#kembali-btn {
+  display: block;
+  margin: 30px auto 0;
+  padding: 10px 24px;
+  font-size: 16px;
+  background-color: #ccc;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#kembali-btn:hover {
+  background-color: #bbb;
+}
+
+/* Responsif untuk layar kecil */
+@media screen and (max-width: 768px) {
+  header .logo h1 {
+    font-size: 24px;
+  }
+
+  header .logo img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .kategori-item img {
+    height: 160px;
+  }
+}
+
+.input-form {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 500px;
+  margin: 20px auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.input-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2f4f4f;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.submit-btn, .kembali-btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+}
+
+.kembali-btn {
+  background-color: #888;
+}
+
+.submit-btn:hover, .kembali-btn:hover {
+  opacity: 0.9;
+}
+
+/* Styling untuk div rekomendasi */
+.rekomendasi {
+  background-color: #f4f4f4; /* Warna latar belakang yang lebih terang */
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan untuk efek kedalaman */
+  color: #333; /* Warna teks lebih gelap untuk kontras */
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.rekomendasi h2 {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.rekomendasi p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.rekomendasi button.kembali-btn {
+  background-color: #3498db; /* Warna biru untuk tombol */
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.rekomendasi button.kembali-btn:hover {
+  background-color: #2980b9; /* Warna lebih gelap saat hover */
+}
+
+/* Styling untuk hasil input */
+.rekomendasi .hasil-input {
+  background-color: #ecf0f1; /* Warna latar belakang hasil input */
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.rekomendasi .hasil-input p {
+  font-size: 1.1rem;
+  margin: 10px 0;
+}
+
+#rekomendasi {
+  margin-top: 20px;
+}
+
+#rekomendasi ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#rekomendasi li {
+  margin: 10px 0;
+}
+
+#rekomendasi img {
+  margin-top: 20px;
+}
+
+.rekomendasi img {
+  width: 100%;    /* Gambar akan menyesuaikan dengan lebar kontainer */
+  height: auto;   /* Menjaga rasio aspek gambar tetap terjaga */
+  display: block; /* Menghilangkan ruang kosong di bawah gambar */
+  margin: 0 auto; /* Menempatkan gambar di tengah */
+  border-radius: 8px; /* Opsional, memberi radius pada gambar */
+}

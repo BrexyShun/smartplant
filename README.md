@@ -1,2 +1,4 @@
-# smartplant
-Demonstrasi Version Control System Collab
+pembagian tugas :
+1. Muhammad Iqbal : SRS, ide aplikasi, fitur 1 dan 2
+2. Tito : simulasi git, ....
+3. Reza: proposal, project charter, ....

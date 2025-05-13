@@ -1,0 +1,20 @@
+{
+  "tanaman_pangan": [
+    {
+      "jenis": "Padi",
+      "umur": 50,
+      "kondisi": "sehat",
+      "lokasi": "outdoor",
+      "jumlahAir": 500,
+      "penyiramanTerakhir": "2025-05-09"
+    },
+    {
+      "jenis": "Jagung",
+      "umur": 30,
+      "kondisi": "sakit",
+      "lokasi": "outdoor",
+      "jumlahAir": 400,
+      "penyiramanTerakhir": "2025-05-08"
+    }
+  ]
+}

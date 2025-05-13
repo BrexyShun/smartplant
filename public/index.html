@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartPlant Dashboard</title>
+  <link rel="stylesheet" href="../public/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="../public/images/logo.png" alt="Logo SmartPlant">
+      <h1>SmartPlant</h1>
+    </div>
+    <div class="icons">
+      <i class="fas fa-user-circle" title="Profil"></i>
+      <i class="fas fa-cog" title="Pengaturan"></i>
+      <i class="fas fa-info-circle" title="Tentang Aplikasi"></i>
+    </div>
+  </header>
+
+  <main>
+    <div class="kategori-tanaman">
+      <div class="kategori-item" id="tanaman-pangan">
+        <img src="../public/images/tanaman-pangan.jpg" alt="Tanaman Pangan">
+        <button>Pilih Tanaman Pangan</button>
+      </div>
+      <div class="kategori-item" id="tanaman-sayuran">
+        <img src="../public/images/tanaman-sayuran.jpg" alt="Tanaman Sayuran">
+        <button>Pilih Tanaman Sayuran</button>
+      </div>
+      <div class="kategori-item" id="tanaman-buah">
+        <img src="../public/images/tanaman-buah.jpg" alt="Tanaman Buah">
+        <button>Pilih Tanaman Buah</button>
+      </div>
+    </div>
+
+    <div id="input-form-container" class="input-form" style="display: none;">
+      <h2>Masukkan Data Tanaman</h2>
+      <form id="form-tanaman">
+        <div class="form-group">
+          <label for="jenis">Jenis Tanaman</label>
+          <select id="jenis" name="jenis" required>
+            <option value="">--Pilih Jenis--</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="umur">Umur Tanaman (hari)</label>
+          <input type="number" id="umur" name="umur" placeholder="Contoh: 45" required>
+        </div>
+
+        <div class="form-group">
+          <label for="kondisi">Kondisi Tanaman</label>
+          <select id="kondisi" name="kondisi">
+            <option value="sehat">Sehat</option>
+            <option value="sakit">Sakit</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="lokasi">Lokasi Tanaman</label>
+          <select id="lokasi" name="lokasi">
+            <option value="indoor">Indoor</option>
+            <option value="outdoor">Outdoor</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="jumlah-air">Jumlah Air (ml)</label>
+          <input type="number" id="jumlah-air" name="jumlah-air" placeholder="Contoh: 250" required>
+        </div>
+
+        <div class="form-group">
+          <label for="penyiraman-terakhir">Penyiraman Terakhir</label>
+          <input type="date" id="penyiraman-terakhir" name="penyiraman-terakhir" required>
+        </div>
+
+        <button type="submit" class="submit-btn">Kirim Data</button>
+      </form>
+
+      <button id="kembali-btn" class="kembali-btn">🔙 Kembali</button>
+    </div>
+
+    <div id="rekomendasi" class="rekomendasi" style="display: none;">
+      <h2>Hasil Input Form:</h2>
+      <p id="rekomendasi-text"></p>
+    </div>
+  </main>
+
+  <script type="module">
+    import { tampilkanHasilInput } from './hasilInput.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const kategoriContainer = document.querySelector('.kategori-tanaman');
+      const inputForm = document.getElementById('input-form-container');
+      const kembaliBtn = document.getElementById('kembali-btn');
+      const jenisSelect = document.getElementById('jenis');
+      const rekomendasiDiv = document.getElementById('rekomendasi');
+      
+      const kategoriData = {
+        'tanaman-pangan': ['Padi', 'Jagung', 'Kedelai'],
+        'tanaman-sayuran': ['Bayam', 'Wortel', 'Kangkung'],
+        'tanaman-buah': ['Melon', 'Semangka', 'Mangga']
+      };
+
+      function bukaFormDenganKategori(kategoriId) {
+        kategoriContainer.style.display = 'none';
+        rekomendasiDiv.style.display = 'none';
+        inputForm.style.display = 'block';
+        isiDropdownJenis(kategoriId);
+      }
+
+      function isiDropdownJenis(kategoriId) {
+        jenisSelect.innerHTML = '<option value="">--Pilih Jenis--</option>';
+        kategoriData[kategoriId].forEach((jenis) => {
+          const option = document.createElement('option');
+          option.value = jenis;
+          option.textContent = jenis;
+          jenisSelect.appendChild(option);
+        });
+      }
+
+      document.getElementById('tanaman-pangan').addEventListener('click', () => {
+        bukaFormDenganKategori('tanaman-pangan');
+      });
+
+      document.getElementById('tanaman-sayuran').addEventListener('click', () => {
+        bukaFormDenganKategori('tanaman-sayuran');
+      });
+
+      document.getElementById('tanaman-buah').addEventListener('click', () => {
+        bukaFormDenganKategori('tanaman-buah');
+      });
+
+      kembaliBtn.addEventListener('click', () => {
+        inputForm.style.display = 'none';
+        rekomendasiDiv.style.display = 'none';
+        kategoriContainer.style.display = 'flex';
+      });
+
+      const formTanaman = document.getElementById('form-tanaman');
+      formTanaman.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const data = {
+          jenis: jenisSelect.value,
+          umur: document.getElementById('umur').value,
+          kondisi: document.getElementById('kondisi').value,
+          lokasi: document.getElementById('lokasi').value,
+          air: document.getElementById('jumlah-air').value,
+          terakhir: document.getElementById('penyiraman-terakhir').value
+        };
+
+        tampilkanHasilInput(data);
+      });
+
+      const ulangBtn = document.createElement('button');
+      ulangBtn.textContent = '🔄 Input Ulang';
+      ulangBtn.className = 'kembali-btn';
+      ulangBtn.addEventListener('click', () => {
+        rekomendasiDiv.style.display = 'none';
+        inputForm.style.display = 'block';
+      });
+      rekomendasiDiv.appendChild(ulangBtn);
+    });
+  </script>
+</body>
+</html>
