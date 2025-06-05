@@ -69,6 +69,7 @@
 </head>
 <body>
   <header>
+    <i class="fas fa-sign-out-alt" title="Logout" id="logout-icon"></i>
     <div class="logo">
       <img src="../public/images/logo.png" alt="Logo SmartPlant">
       <h1>SmartPlant</h1>
@@ -165,9 +166,16 @@
   </main>
 
   <script type="module">
+      if (localStorage.getItem('isLoggedIn') !== 'true') {
+    window.location.href = 'login.html';
+  }
     import { tampilkanHasilInput } from './hasilInput.js';
 
     document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('logout-icon').addEventListener('click', () => {
+  localStorage.removeItem('isLoggedIn');
+  window.location.href = 'login.html';
+});
       const kategoriContainer = document.querySelector('.kategori-tanaman');
       const inputForm = document.getElementById('input-form-container');
       const kembaliBtn = document.getElementById('kembali-btn');
