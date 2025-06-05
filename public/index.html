@@ -32,7 +32,7 @@
       position: absolute;
       top: 60px;
       right: 20px;
-      background-color: #c71515;
+      background-color: #ffffff;
       color: #000000;
       padding: 15px;
       border: 1px solid #ccc;
@@ -166,14 +166,16 @@
   </main>
 
   <script type="module">
-      if (localStorage.getItem('isLoggedIn') !== 'true') {
-    window.location.href = 'login.html';
+    const user = localStorage.getItem("loggedInUser");
+  if (!user) {
+    window.location.href = "login.html";
   }
     import { tampilkanHasilInput } from './hasilInput.js';
 
     document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('logout-icon').addEventListener('click', () => {
-  localStorage.removeItem('isLoggedIn');
+  localStorage.removeItem("loggedInUser");
+
   window.location.href = 'login.html';
 });
       const kategoriContainer = document.querySelector('.kategori-tanaman');

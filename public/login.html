@@ -94,9 +94,11 @@
       const password = document.getElementById('password').value;
       const users = JSON.parse(localStorage.getItem('users') || '{}');
 
-      if (users[username] && users[username] === password) {
-        window.location.href = 'index.html'; // atau halaman utama SmartPlant
-      } else {
+if (users[username] && users[username] === password) {
+  localStorage.setItem("loggedInUser", username); // ✅ Simpan status login
+  window.location.href = "index.html";
+}
+ else {
         document.getElementById('error-message').textContent = 'Username atau password salah.';
       }
     });

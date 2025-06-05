@@ -115,7 +115,8 @@
       }
 
       users[username] = password;
-      localStorage.setItem("users", JSON.stringify(users));
+      localStorage.setItem("loggedInUser", username);
+
 
       message.textContent = "Registrasi berhasil! Silakan login.";
       message.className = "success-message";
