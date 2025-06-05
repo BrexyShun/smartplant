@@ -25,7 +25,9 @@
       const password = document.getElementById('password').value;
 
       // Simulasi autentikasi sederhana (bisa diganti dengan backend)
-      if (username === 'admin' && password === '1234') {
+      let users = JSON.parse(localStorage.getItem('users') || '{}');
+if (users[username] && users[username] === password) {
+
         localStorage.setItem('isLoggedIn', 'true');
         window.location.href = 'index.html';
       } else {
