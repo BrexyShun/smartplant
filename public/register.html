@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Daftar - SmartPlant</title>
   <style>
+    /* style sama seperti yang kamu kasih */
     body {
       margin: 0;
       padding: 0;
@@ -15,7 +16,6 @@
       justify-content: center;
       align-items: center;
     }
-
     .register-container {
       background: white;
       padding: 30px;
@@ -25,12 +25,10 @@
       max-width: 350px;
       text-align: center;
     }
-
     .register-container h2 {
       margin-bottom: 20px;
       color: #2e7d32;
     }
-
     .register-container input {
       width: 100%;
       padding: 12px;
@@ -39,7 +37,6 @@
       border-radius: 8px;
       box-sizing: border-box;
     }
-
     .register-container button {
       width: 100%;
       padding: 12px;
@@ -50,26 +47,21 @@
       font-size: 16px;
       cursor: pointer;
     }
-
     .register-container button:hover {
       background-color: #1b5e20;
     }
-
     .success-message {
       color: green;
       margin-top: 10px;
     }
-
     .error-message {
       color: red;
       margin-top: 10px;
     }
-
     .login-link {
       margin-top: 15px;
       font-size: 14px;
     }
-
     .login-link a {
       color: #2e7d32;
       text-decoration: none;
@@ -115,10 +107,10 @@
       }
 
       users[username] = password;
+      localStorage.setItem("users", JSON.stringify(users));
       localStorage.setItem("loggedInUser", username);
 
-
-      message.textContent = "Registrasi berhasil! Silakan login.";
+      message.textContent = "Registrasi berhasil! Mengalihkan ke login...";
       message.className = "success-message";
 
       setTimeout(() => {

@@ -69,7 +69,8 @@
 </head>
 <body>
   <header>
-    <i class="fas fa-sign-out-alt" title="Logout" id="logout-icon"></i>
+<i class="fas fa-sign-out-alt" title="Keluar" id="logout-btn"></i>
+
     <div class="logo">
       <img src="../public/images/logo.png" alt="Logo SmartPlant">
       <h1>SmartPlant</h1>
@@ -173,11 +174,15 @@
     import { tampilkanHasilInput } from './hasilInput.js';
 
     document.addEventListener('DOMContentLoaded', () => {
-      document.getElementById('logout-icon').addEventListener('click', () => {
-  localStorage.removeItem("loggedInUser");
-
-  window.location.href = 'login.html';
+      document.querySelector('.fa-user-circle').addEventListener('click', () => {
+  window.location.href = 'profil.html';
 });
+const logoutBtn = document.getElementById("logout-btn");
+logoutBtn.addEventListener("click", () => {
+  localStorage.removeItem("loggedInUser");
+  window.location.href = "login.html";
+});
+
       const kategoriContainer = document.querySelector('.kategori-tanaman');
       const inputForm = document.getElementById('input-form-container');
       const kembaliBtn = document.getElementById('kembali-btn');
@@ -274,6 +279,11 @@
         }
       });
     });
+    const logoutBtn = document.getElementById("logout-btn");
+logoutBtn.addEventListener("click", () => {
+  localStorage.removeItem("loggedInUser");
+  window.location.href = "login.html";
+});
   </script>
 </body>
 </html>

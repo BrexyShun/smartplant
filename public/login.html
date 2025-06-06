@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Login - SmartPlant</title>
   <style>
     body {
@@ -15,7 +15,6 @@
       justify-content: center;
       align-items: center;
     }
-
     .login-container {
       background: white;
       padding: 30px;
@@ -25,12 +24,10 @@
       max-width: 350px;
       text-align: center;
     }
-
     .login-container h2 {
       margin-bottom: 20px;
       color: #388e3c;
     }
-
     .login-container input {
       width: 100%;
       padding: 12px;
@@ -39,7 +36,6 @@
       border-radius: 8px;
       box-sizing: border-box;
     }
-
     .login-container button {
       width: 100%;
       padding: 12px;
@@ -50,23 +46,19 @@
       font-size: 16px;
       cursor: pointer;
     }
-
     .login-container button:hover {
       background-color: #2e7d32;
     }
-
     .error-message {
       color: red;
       margin-top: 10px;
     }
-
     .register-link {
       display: block;
       margin-top: 15px;
       font-size: 14px;
       color: #555;
     }
-
     .register-link a {
       color: #388e3c;
       text-decoration: none;
@@ -77,8 +69,8 @@
   <div class="login-container">
     <h2>SmartPlant Login</h2>
     <form id="login-form">
-      <input type="text" id="username" placeholder="Username" required>
-      <input type="password" id="password" placeholder="Password" required>
+      <input type="text" id="username" placeholder="Username" required />
+      <input type="password" id="password" placeholder="Password" required />
       <button type="submit">Masuk</button>
       <p class="error-message" id="error-message"></p>
     </form>
@@ -90,16 +82,17 @@
   <script>
     document.getElementById('login-form').addEventListener('submit', function (e) {
       e.preventDefault();
-      const username = document.getElementById('username').value;
+
+      const username = document.getElementById('username').value.trim();
       const password = document.getElementById('password').value;
       const users = JSON.parse(localStorage.getItem('users') || '{}');
+      const errorMsg = document.getElementById('error-message');
 
-if (users[username] && users[username] === password) {
-  localStorage.setItem("loggedInUser", username); // ✅ Simpan status login
-  window.location.href = "index.html";
-}
- else {
-        document.getElementById('error-message').textContent = 'Username atau password salah.';
+      if (users[username] && users[username] === password) {
+        localStorage.setItem('loggedInUser', username);
+        window.location.href = "index.html";
+      } else {
+        errorMsg.textContent = 'Username atau password salah.';
       }
     });
   </script>
